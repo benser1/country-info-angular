@@ -10,8 +10,8 @@
 
   <div ng-app="countryInfo" ng-controller="CountryController">
 
-    <div>
-      {{ test }}
+    <div ng-repeat='country in country'>
+      {{ country.name }} - {{ country.population }}
     </div>
 
   </div>
