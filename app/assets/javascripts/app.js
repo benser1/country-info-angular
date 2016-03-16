@@ -60,8 +60,8 @@
 
 //////////////// TEST /////////////////////
 
-angular.module('countryInfo', [])
-  .controller('CountryController', function($scope, $http) {
+angular.module('musicInfo', [])
+  .controller('MusicController', function($scope, $http) {
     $scope.$watch('name', function() {
       fetch();
     });
@@ -69,15 +69,25 @@ angular.module('countryInfo', [])
     $scope.name = '';
 
     function fetch() {
-      $http.get("https://restcountries-v1.p.mashape.com/name/" + $scope.name, {
+      $http.get("https://deezerdevs-deezer.p.mashape.com/search?q=" + $scope.name, {
         headers: {
           "X-Mashape-Key" : "iqmUgMu5uxmshAf9FL5keI4EPSnpp1zQlVmjsnwdw5wchx92WG"
         }
       })
         .then(function(response) {
-          $scope.country = response.data;
+          $scope.music = response.data.data;
         });
     }
+    // function countryName() {
+    //   $http.get("https://restcountries-v1.p.mashape.com/name/" + $scope.name, {
+    //     headers: {
+    //       "X-Mashape-Key" : "iqmUgMu5uxmshAf9FL5keI4EPSnpp1zQlVmjsnwdw5wchx92WG"
+    //     }
+    //   })
+    //     .then(function(response) {
+    //       $scope.country = response.data;
+    //     });
+    // }
   });
 
 
