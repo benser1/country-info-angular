@@ -34,14 +34,14 @@
     </div>
 
    <div class="row">
-    <div ng-repeat="music in music" class="col s12 m4">
+    <div ng-repeat="music in music" class="col s12 m6 l4">
       <div class="card light-blue darken-4" style="height: 240px">
         <div class="card-content white-text center-align">
           <span class="card-title">{{music.artist.name}}</span>
           <p>Song Title: {{ music.title }}</p>
           <p>Explicit Song? {{ music.explicit_lyrics }}</p>
           <p>Album: {{ music.album.title }}</p>
-          <a class="text-color" target="_blank" href="{{ music.preview }}">Preview Song</a>
+          <audio id="player" audioplayer controls class="text-color" src="{{music.preview | trustUrl}}">Preview Song</audio>
           <p><img ng-src="{{ music.album.cover_small }}"></p>
         </div>
     <!--     <div class="card-action">

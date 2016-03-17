@@ -88,8 +88,12 @@ angular.module('musicInfo', [])
     //       $scope.country = response.data;
     //     });
     // }
-  });
-
+  })
+  .filter("trustUrl", ['$sce', function ($sce) {
+        return function (recordingUrl) {
+            return $sce.trustAsResourceUrl(recordingUrl);
+        };
+    }]);
 
 
 
