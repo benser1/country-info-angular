@@ -14,7 +14,7 @@
           .then(function(response) {
             $scope.music = response.data.data;
           });
-      }
+      };
     };
 
  angular 
