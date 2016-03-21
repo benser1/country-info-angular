@@ -41,8 +41,8 @@
           <p>Song Title: {{ music.title }}</p>
           <p>Explicit Song? {{ music.explicit_lyrics }}</p>
           <p>Album: {{ music.album.title }}</p>
-          <audio id="player" audioplayer controls class="text-color" src="{{music.preview | trustUrl}}">Preview Song</audio>
           <p><img ng-src="{{ music.album.cover_small }}"></p>
+          <audio id="player" audioplayer controls class="text-color" src="{{music.preview | trustUrl}}">Preview Song</audio>
         </div>
     <!--     <div class="card-action">
           <a href="#">This is a link</a>

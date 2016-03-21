@@ -60,40 +60,9 @@
 
 //////////////// TEST /////////////////////
 
-angular.module('musicInfo', [])
-  .controller('MusicController', function($scope, $http) {
-    $scope.$watch('name', function() {
-      fetch();
-    });
-
-    $scope.name = '';
-
-    function fetch() {
-      $http.get("https://deezerdevs-deezer.p.mashape.com/search?q=" + $scope.name, {
-        headers: {
-          "X-Mashape-Key" : "iqmUgMu5uxmshAf9FL5keI4EPSnpp1zQlVmjsnwdw5wchx92WG"
-        }
-      })
-        .then(function(response) {
-          $scope.music = response.data.data;
-        });
-    }
-    // function countryName() {
-    //   $http.get("https://restcountries-v1.p.mashape.com/name/" + $scope.name, {
-    //     headers: {
-    //       "X-Mashape-Key" : "iqmUgMu5uxmshAf9FL5keI4EPSnpp1zQlVmjsnwdw5wchx92WG"
-    //     }
-    //   })
-    //     .then(function(response) {
-    //       $scope.country = response.data;
-    //     });
-    // }
-  })
-  .filter("trustUrl", ['$sce', function ($sce) {
-        return function (recordingUrl) {
-            return $sce.trustAsResourceUrl(recordingUrl);
-        };
-    }]);
+angular
+.module('musicInfo', []);
+  
 
 
 
