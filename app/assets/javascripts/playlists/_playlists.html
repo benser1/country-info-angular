@@ -1,0 +1,19 @@
+<h1>Test</h1>
+
+<div ng-repeat="playlist in playlists">
+    {{ playlist.name }}
+<!--   <button ng-click="addPlaylist()">Playlist</button> -->
+</div>
+
+<div class="row">
+  <form ng-submit="addPlaylist()" class="col s12 m8 l8">
+    <div class="row">
+      <div class="input-field">
+        <input ng-model="name" type="text" class="validate" placeholder="Playlist Name">
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light" type="submit">Submit
+      <i class="material-icons right"></i>
+    </button>
+  </form>
+</div>

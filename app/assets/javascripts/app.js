@@ -1,5 +1,11 @@
 angular
   .module('musicInfo', ['ui.router', 'templates', 'Devise'])
+  .factory('playlists', [function(){
+    var o = {
+      playlists: []
+    };
+    return o;
+  }])
   .config([
     '$stateProvider',
     '$urlRouterProvider',
@@ -9,6 +15,11 @@ angular
           url: '/home',
           templateUrl: 'home/_home.html',
           controller: 'MusicController'
+        })
+        .state('playlists', {
+          url: '/playlists',   /// I need an index page and an individual playlists page
+          templateUrl: 'playlists/_playlists.html',
+          controller: 'PlaylistsCtrl'
         })
         .state('login', {
           url: '/login',
@@ -33,4 +44,5 @@ angular
 
       $urlRouterProvider.otherwise('home');
     }])
+  
   

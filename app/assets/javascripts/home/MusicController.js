@@ -1,4 +1,14 @@
- function MusicController($scope, $http) {
+ function MusicController($scope, $http, playlists) {
+  
+      $scope.playlists = playlists.playlists;
+
+      // $scope.addPlaylist = function() {
+      //   if(!$scope.name || $scope.name === '') { return; }
+
+      //   $scope.playlists.push({title: $scope.name});
+
+      //   $scope.name = '';
+      // };
       $scope.$watch('name', function() {
         fetch();
       });
