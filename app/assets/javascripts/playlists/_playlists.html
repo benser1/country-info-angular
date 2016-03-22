@@ -1,8 +1,7 @@
 <h1>Test</h1>
 
 <div ng-repeat="playlist in playlists">
-    {{ playlist.name }}
-<!--   <button ng-click="addPlaylist()">Playlist</button> -->
+    <a ng-href="#/playlists/{{playlist.id}}" ng-click="select_item(playlist)">{{ playlist.name }}</a>
 </div>
 
 <div class="row">

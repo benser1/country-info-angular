@@ -1,11 +1,5 @@
 angular
   .module('musicInfo', ['ui.router', 'templates', 'Devise'])
-  .factory('playlists', [function(){
-    var o = {
-      playlists: []
-    };
-    return o;
-  }])
   .config([
     '$stateProvider',
     '$urlRouterProvider',
@@ -15,11 +9,31 @@ angular
           url: '/home',
           templateUrl: 'home/_home.html',
           controller: 'MusicController'
+          // resolve: {
+          //   playlistPromise: ['playlists', function(playlists){
+          //     return playlists.getAll();
+          //   }]
+          // }
         })
         .state('playlists', {
           url: '/playlists',   /// I need an index page and an individual playlists page
           templateUrl: 'playlists/_playlists.html',
-          controller: 'PlaylistsCtrl'
+          controller: 'PlaylistsCtrl',
+          resolve: {
+            playlistPromise: ['playlists', function(playlists){
+              return playlists.getAll();
+            }]
+          }
+        })
+        .state('show', {
+          url: '/playlists/{id}',   /// I need an index page and an individual playlists page
+          templateUrl: 'playlists/_show.html',
+          controller: 'PlaylistsCtrl',
+          resolve: {
+            post: ['$stateParams', 'playlists', function($stateParams, playlists){
+              return playlists.get($stateParams.id);
+            }]
+          }
         })
         .state('login', {
           url: '/login',

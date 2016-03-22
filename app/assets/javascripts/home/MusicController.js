@@ -1,6 +1,6 @@
- function MusicController($scope, $http, playlists) {
-  
-      $scope.playlists = playlists.playlists;
+ function MusicController($scope, $http) {
+
+      // $scope.playlists = playlists.playlists;
 
       // $scope.addPlaylist = function() {
       //   if(!$scope.name || $scope.name === '') { return; }

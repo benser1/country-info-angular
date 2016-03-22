@@ -1,36 +1,37 @@
 class PlaylistsController < ApplicationController
 
   def index
-    @playlists = Playlist.all
+    respond_with Playlist.all
   end
 
   def show
-    play_help
+    respond_with Playlist.find(params[:id])
   end
 
-  def new
-    @playlist = Playlist.new
-  end
+  # def new
+  #   @playlist = Playlist.new
+  # end
 
   def create
-    @playlist = Playlist.new(playlist_params)
-    @playlist.user_id = current_user.id
-    @playlist.save 
+    respond_with Playlist.create(playlist_params)
+    # @playlist = Playlist.new(playlist_params)
+    # @playlist.user_id = current_user.id
+    # @playlist.save 
 
-    redirect_to playlist_path(@playlist)
+    # redirect_to playlist_path(@playlist)
   end
 
-  def edit
-    play_help
-  end
+  # def edit
+  #   play_help
+  # end
 
-  def update
-    play_help
-  end
+  # def update
+  #   play_help
+  # end
 
-  def delete
+  # def delete
 
-  end
+  # end
 
   private 
 
@@ -38,9 +39,9 @@ class PlaylistsController < ApplicationController
     params.require(:playlist).permit(:name)
   end
 
-  def play_help
-    @playist = Playlist.find(params[:id])
-  end
+  # def play_help
+  #   @playist = Playlist.find(params[:id])
+  # end
 
 
 

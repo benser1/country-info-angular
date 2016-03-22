@@ -1,18 +1,17 @@
 function PlaylistsCtrl($scope, $stateParams, playlists) {
 
-  $scope.playlists = [
-    {name: $scope.name}
-  ];
+   $scope.playlists = playlists.playlists;
 
-  $scope.addPlaylist = function() {
-    if(!$scope.name || $scope.name === '') { return; }
+      $scope.addPlaylist = function() {
+        if(!$scope.name || $scope.name === '') { return; }
 
-    $scope.playlists.push({name: $scope.name});
+        playlists.create({
+          name: $scope.name
+        });
 
-    $scope.name = '';
-  };
-
-};
+        $scope.name = '';
+      };  
+}
 
  angular 
   .module('musicInfo')
