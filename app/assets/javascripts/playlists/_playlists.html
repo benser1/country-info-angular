@@ -1,16 +1,17 @@
 <div ng-include="'nav/_playlistsNav.html'"></div>
 
-<h1>Test</h1>
-
-<div ng-repeat="playlist in playlists">
-    <a ng-show="playlist.name" ng-href="#/playlists/{{playlist.id}}" value="{{playlist}}">{{ playlist.name }}</a>
+<div ng-repeat="playlist in playlists" class="center">
+  <ul>
+    <li><a ng-show="playlist.name" ng-href="#/playlists/{{playlist.id}}" value="{{playlist}}" >{{ playlist.name }}</a>
+    <a ng-click="destroy(playlist)"><i class="material-icons">delete</i></a></li>
+    </ul>
 </div>
 
 <div class="row">
   <form ng-submit="addPlaylist()" class="col s12 m8 l8">
     <div class="row">
       <div class="input-field">
-        <input ng-model="name" type="text" class="validate" placeholder="Playlist Name">
+        <input ng-model="name" type="text" class="validate" placeholder="Add New Playlist">
       </div>
     </div>
     <button class="btn waves-effect waves-light" type="submit">Submit

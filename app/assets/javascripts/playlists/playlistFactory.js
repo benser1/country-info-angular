@@ -21,6 +21,11 @@ angular
         return res.data;
       });
     };
+    o.destroy = function(playlist) {
+    return $http.delete('/playlists/' + playlist.id + '.json').success(function(data) {
+      o.playlists.splice(o.playlists.indexOf(playlist), 1);
+    });
+  };
 
     return o;
   }])

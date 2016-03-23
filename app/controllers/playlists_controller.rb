@@ -29,9 +29,9 @@ class PlaylistsController < ApplicationController
   #   play_help
   # end
 
-  # def delete
-
-  # end
+  def destroy
+    respond_with Playlist.find(params[:id]).destroy
+  end
 
   private 
 
