@@ -1,14 +1,5 @@
  function MusicController($scope, $http) {
 
-      // $scope.playlists = playlists.playlists[$stateParams.id];
-
-      // $scope.addPlaylist = function() {
-      //   if(!$scope.name || $scope.name === '') { return; }
-
-      //   $scope.playlists.push({title: $scope.name});
-
-      //   $scope.name = '';
-      // };
       $scope.$watch('name', function() {
         fetch();
       });

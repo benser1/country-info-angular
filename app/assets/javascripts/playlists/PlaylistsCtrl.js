@@ -2,12 +2,7 @@ function PlaylistsCtrl($scope, $state, $stateParams, playlists) {
 
    $scope.playlists = playlists.playlists;
    $scope.id = $state.params.id;
-   // $scope.remove = function(item) { 
-   //  var index = $scope.playlists.indexOf(item);
-   //    if (index != -1) {
-   //      $scope.playlists.splice(index, 1);
-   //    }    
-   //  }
+
    $scope.destroy = function(playlist) {
       playlists.destroy(playlist);
     };
