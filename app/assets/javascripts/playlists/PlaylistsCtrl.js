@@ -1,6 +1,7 @@
-function PlaylistsCtrl($scope, $stateParams, playlists) {
+function PlaylistsCtrl($scope, $state, $stateParams, playlists) {
 
    $scope.playlists = playlists.playlists;
+   $scope.id = $state.params.id;
 
       $scope.addPlaylist = function() {
         if(!$scope.name || $scope.name === '') { return; }

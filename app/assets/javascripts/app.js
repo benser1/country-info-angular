@@ -30,8 +30,8 @@ angular
           templateUrl: 'playlists/_show.html',
           controller: 'PlaylistsCtrl',
           resolve: {
-            post: ['$stateParams', 'playlists', function($stateParams, playlists){
-              return playlists.get($stateParams.id);
+            playlistPromise: ['playlists', function(playlists){
+              return playlists.getAll();
             }]
           }
         })

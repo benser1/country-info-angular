@@ -1,7 +1,3 @@
-<div ng-repeat="playlist in playlists">
+<div ng-repeat="playlist in playlists | filter: {id: id}">
   {{ playlist.name }}
 </div>
-
-
-<p>test</p>
-

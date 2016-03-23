@@ -1,6 +1,6 @@
  function MusicController($scope, $http) {
 
-      // $scope.playlists = playlists.playlists;
+      // $scope.playlists = playlists.playlists[$stateParams.id];
 
       // $scope.addPlaylist = function() {
       //   if(!$scope.name || $scope.name === '') { return; }
