@@ -1,0 +1,33 @@
+<div ng-include="'nav/_nav.html'"></div>
+
+    <div class="row">
+     <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12 offset-m3">
+          <input placeholder="Type Artist Name or Song Title" type="text" class="validate" ng-model="name" ng-model-options="{ updateOn: 'blur' }">
+          <label for="name"></label>
+          <button class="btn waves-effect waves-light s12 m6 offset-m3" type="submit">Search
+          </button>
+        </div>
+       </div>
+      </form>
+    </div>
+
+   <div class="row">
+    <div ng-repeat="music in music" class="col s12 m6 l4">
+      <div class="card light-blue darken-4" style="height: 255px">
+        <div class="card-content white-text center-align">
+          <span class="card-title">{{music.artist.name}}</span>
+          <p>Song Title: {{ music.title }}</p>
+          <p>Explicit Song? {{ music.explicit_lyrics }}</p>
+          <p>Album: {{ music.album.title }}</p>
+          <p><img ng-src="{{ music.album.cover_small }}"></p>
+          <audio id="player" audioplayer controls class="text-color" src="{{music.preview | trustUrl}}">Preview Song</audio>
+        </div>
+    <!--     <div class="card-action">
+          <a href="#">This is a link</a>
+          <a href="#">This is a link</a>
+        </div> -->
+      </div>
+    </div>
+  </div>
